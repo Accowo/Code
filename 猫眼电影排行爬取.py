@@ -37,7 +37,7 @@ def write_to_file(content):
 	with open("result.tex", "a", encoding="utf-8") as f:
 		print(type(json.dumps(content)))
 		f.write(type(json.dumps(content, ensure_ascii=False)+"\n"))
-
+#主函数
 def main():  
 	url = 'https://maoyan.com/board/4?offset=0'
 	html = get_one_page(url)
