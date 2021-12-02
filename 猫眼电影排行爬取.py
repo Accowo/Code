@@ -2,25 +2,29 @@
 Author: accowo
 Version: default: V1.0
 Date: 2021-10-17 12:50:45
-LastEditTime: 2021-12-02 11:13:17
+LastEditTime: 2021-12-02 13:28:38
 LastEditors: Please set LastEditors
 brief: 猫眼电影排名爬取
 Attention: something to notice
 '''
 import requests  
+from requests.exceptions import RequestException
 import re
 import json
 import time
 
 #获得网页url源代码
 def get_one_page(url):  
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0Win64x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36 Edg/94.0.992.47'
-    }
+	try:
+		headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0Win64x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36 Edg/94.0.992.47'
+		}
 
-    response = requests.get(url, headers=headers)  
-    if response.status_code == 200:  
-        return response.text  
-    return None  
+		response = requests.get(url, headers=headers)  
+		if response.status_code == 200:  
+			return response.text
+		return None
+	except RequestException:
+		return None
 #正则表达式解析网页源码
 def parse_one_page(html):
     pattern = re.compile('<dd>.*?board-index.*?>(.*?)</i>.*?data-src="(.*?)".*?name.*?a.*?>(.*?)</a>.*?star.*?>(.*?)</p>.*?releasetime.*?>(.*?)</p>.*?integer.*?>(.*?)</i>.*?fraction.*?>(.*?)</i>.*?</dd>',
