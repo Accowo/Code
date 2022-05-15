@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/stackTest.dir/main.c.o CMakeFiles/stackTest.dir/stack.c.o  -o stackTest 

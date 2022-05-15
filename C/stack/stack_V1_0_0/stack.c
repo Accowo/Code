@@ -1,10 +1,9 @@
-#include <stdbool>
 #include "stack.h"
 
-int buf[16];
-int top = 0;
+static int buf[STACK_MAX_LEN];
+static int top = 0;
 
-bool isStackFull(void)
+static bool isStackFull(void)
 {
 /*  way 1
 	if (top == 16)
@@ -20,7 +19,7 @@ bool isStackFull(void)
 }
 
 
-bool isStackEmpty(void)
+static bool isStackEmpty(void)
 {
 /* way 1
 	if (top == 0)
@@ -51,5 +50,4 @@ bool pop(int *pRet)
 
  	*pRet =	buf[--top];
 	return true;
-
 }

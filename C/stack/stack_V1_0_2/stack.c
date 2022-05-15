@@ -10,9 +10,13 @@ static bool isStackEmpty(const Stack *this)
 {
 	return this->top == 0;
 }
+static bool isRangeOK(const Range *pRange, int val)
+{
+	return pRange == NULL || (val <= pRange->max && val >= pRange->min);
+}
 bool push(Stack *this, int val)
 {
-	if (isStackFull(this))	
+	if (isStackFull(this) || !isRangeOK(this->pRange, val))	
 	{
 		return false;
 	}

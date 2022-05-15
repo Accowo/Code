@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ubuntu/Code/C/stack/stack_V1_0_3/main.c
+stdio.h
+-
+stack.h
+/home/ubuntu/Code/C/stack/stack_V1_0_3/stack.h
+
+/home/ubuntu/Code/C/stack/stack_V1_0_3/stack.h
+stdbool.h
+-
+stddef.h
+-
+
